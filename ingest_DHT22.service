@@ -1,0 +1,13 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Ingest DHT22 temperature sensor data
+Requires=influxdb.service
+After=influxdb.service
+
+[Service]
+ExecStart=/usr/local/bin/ingest_DHT22.py
+Restart=always
+RestartSec=60
+User=ingest
